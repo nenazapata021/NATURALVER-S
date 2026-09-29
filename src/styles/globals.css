@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+/*
+ * NATURALVER'S — Sistema de Diseño
+ *
+ * Color:
+ * - Verde bosque (#1B4332): primario, confianza y naturaleza
+ * - Verde salvia (#74A57F): secundario, calma y bienestar
+ * - Crema (#FAF7F0): fondo, limpieza y espacio
+ * - Terracotta (#C05621): acento CTA, tierra y calidez
+ * - Dorado (#D4A853): acento premium, calidad artesanal
+ *
+ * Tipografía:
+ * - Fraunces: display/títulos, carácter orgánico con serifa suave
+ * - Inter: cuerpo/UI, legibilidad y modernidad
+ *
+ * Layout: "Botánica ancestral moderna" — grid asimétrico con
+ * jerarquía clara, texto generoso, imágenes con peso visual.
+ *
+ * Principios:
+ * 1. Cada producto cuenta una historia de tradición y naturaleza
+ * 2. La claridad vende: ingredientes y uso visibles sin fricción
+ * 3. El bienestar se siente: espacios amplios, colores que respiran
+ */
+
+@theme {
+  --color-forest: #1B4332;
+  --color-forest-light: #2D5A43;
+  --color-forest-dark: #0F2A1E;
+  --color-sage: #74A57F;
+  --color-sage-light: #A8C9A0;
+  --color-sage-dark: #5A8A65;
+  --color-cream: #FAF7F0;
+  --color-cream-dark: #F0EBE0;
+  --color-terracotta: #C05621;
+  --color-terracotta-light: #D97B4A;
+  --color-terracotta-dark: #9A4419;
+  --color-gold: #D4A853;
+  --color-gold-light: #E5C47A;
+  --color-gold-dark: #B8923E;
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream text-forest font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-forest;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-terracotta px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-terracotta-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-terracotta disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border-2 border-forest px-6 py-3 text-sm font-semibold text-forest transition-colors hover:bg-forest hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-forest disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-whatsapp {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-[#25D366] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#1DA851] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#25D366] disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .card {
+    @apply rounded-2xl bg-white p-6 shadow-sm border border-forest/5;
+  }
+
+  .input-field {
+    @apply w-full rounded-lg border border-forest/20 bg-white px-4 py-3 text-sm text-forest placeholder:text-forest/40 focus:border-forest focus:outline-none focus:ring-2 focus:ring-forest/10 transition-colors;
+  }
+
+  .label-text {
+    @apply block text-sm font-medium text-forest/80 mb-1.5;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
